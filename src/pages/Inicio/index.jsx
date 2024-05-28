@@ -1,12 +1,23 @@
 import Banner from "../../components/Banner"
-import Menu from "../../components/Menu"
+import styles from './Inicio.module.css'
+import Post from "../../components/Post/index"
+
+
+import posts from '../../json/posts.json'
+
 
 export default function Inicio(){
     return(
         <main>
-            <Menu/>
             <Banner/>
-            <h1>Inicio</h1>
+
+            <ul className={styles.posts}>
+                {posts.map((post) => {
+                    <li key={post.id}>
+                       <Post post={post} />
+                    </li>
+                })}
+            </ul>
         </main>
     )
 }
